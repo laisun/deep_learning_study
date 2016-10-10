@@ -10,15 +10,16 @@ mnist = input_data.read_data_sets("./tmp/", one_hot=True)
 
 
 # define variables
-x = tf.placeholder(tf.float32, [None, 784])
-W = tf.Variable(tf.zeros([784,10]))
-b = tf.Variable(tf.zeros([10]))
+x = tf.placeholder(tf.float32, [None, 784])  #input features: x 
+y_ = tf.placeholder("float", [None,10])      #input lables : y
+
+W = tf.Variable(tf.zeros([784,10]))  # weighted matrix
+b = tf.Variable(tf.zeros([10]))      # bias vector
 
 # define model
 y = tf.nn.softmax(tf.matmul(x,W) + b)
 
 # define cost function
-y_ = tf.placeholder("float", [None,10])
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 
 # define Optimizer

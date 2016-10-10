@@ -53,7 +53,6 @@ biases = {
 
 #---------------------def RNN------------------------------------------------#
 def RNN(_X, _istate, _weights, _biases):
-
     # input shape: (batch_size, n_steps, n_input)
     _X = tf.transpose(_X, [1, 0, 2])  # permute n_steps and batch_size
     # Reshape to prepare input to hidden activation
